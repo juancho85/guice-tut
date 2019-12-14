@@ -70,3 +70,37 @@ Guice provides a way to create bindings with value objects or constants
 * https://www.tutorialspoint.com/guice/guice_provides_annotation.htm
 * https://github.com/google/guice/wiki/ProvidesMethods
 * Method annotated with @Provides creating the object, must be defined within a module
+
+# Provider class - provider bindings
+* https://www.tutorialspoint.com/guice/guice_provider_class.htm
+* https://github.com/google/guice/wiki/ProviderBindings
+This approach allows extracting complex provide methods to a separate class
+
+```java
+// Guice's Provider interface
+public interface Provider<T> {
+  T get();
+}
+
+// Provider
+class SpellCheckerProvider implements Provider<SpellChecker> {
+   @Override
+   public SpellChecker get() {
+      String dbUrl = "jdbc:mysql://localhost:5326/emp";
+      String user = "user";
+      int timeout = 100;
+      SpellChecker SpellChecker = new SpellCheckerImpl(dbUrl, user, timeout);
+      return SpellChecker;
+   } 
+}
+
+//Binding Module
+class TextEditorModule extends AbstractModule {
+   @Override
+   
+   protected void configure() {
+      bind(SpellChecker.class).toProvider(SpellCheckerProvider.class);
+   } 
+}
+
+```
