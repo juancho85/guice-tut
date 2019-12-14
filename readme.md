@@ -18,3 +18,49 @@ class TextEditorModule extends AbstractModule {
    } 
 }
 ```
+
+## Binding annotations
+* https://www.tutorialspoint.com/guice/guice_binding_annotations.htm
+* https://github.com/google/guice/wiki/BindingAnnotations
+What is the purpose? Isn't the example below the same as injecting a concrete implementation WinWordSpellCheckerImpl?
+
+```java
+@Inject
+public TextEditor(@WinWord SpellChecker spellChecker) {
+   this.spellChecker = spellChecker;
+}
+```
+
+## Named annotations
+* https://www.tutorialspoint.com/guice/guice_named_binding.htmWhat is the purpose. Isn't the example below the same as injecting a concrete implementation WinWordSpellCheckerImpl?
+* https://github.com/google/guice/wiki/BindingAnnotations
+Similar to binding annotations but without creating a custom annotation
+
+```java
+//Binding Module
+class TextEditorModule extends AbstractModule {
+   @Override
+   
+   protected void configure() {
+      bind(SpellChecker.class).annotatedWith(Names.named("OpenOffice"))
+         .to(OpenOfficeWordSpellCheckerImpl.class);
+   } 
+}
+
+class TextEditor {
+   private SpellChecker spellChecker;
+   
+   @Inject
+   public TextEditor(@Named("OpenOffice") SpellChecker spellChecker) {
+      this.spellChecker = spellChecker;      
+   }
+   public void makeSpellCheck() {
+      spellChecker.checkSpelling(); 
+   }  
+}
+```
+
+# Constant/Instance bindings
+* https://www.tutorialspoint.com/guice/guice_constant_bindings.htm
+* https://github.com/google/guice/wiki/InstanceBindings
+Guice provides a way to create bindings with value objects or constants
