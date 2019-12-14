@@ -64,3 +64,9 @@ class TextEditor {
 * https://www.tutorialspoint.com/guice/guice_constant_bindings.htm
 * https://github.com/google/guice/wiki/InstanceBindings
 Guice provides a way to create bindings with value objects or constants
+
+
+# @Provides methods - binding complex objects
+* https://www.tutorialspoint.com/guice/guice_provides_annotation.htm
+* https://github.com/google/guice/wiki/ProvidesMethods
+* Method annotated with @Provides creating the object, must be defined within a module
