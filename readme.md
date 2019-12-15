@@ -60,26 +60,39 @@ class TextEditor {
 }
 ```
 
-# Constant/Instance bindings
+## Constant/Instance bindings
 * https://www.tutorialspoint.com/guice/guice_constant_bindings.htm
 * https://github.com/google/guice/wiki/InstanceBindings
 Guice provides a way to create bindings with value objects or constants
 
 
-# @Provides methods - binding complex objects
+## @Provides methods - binding complex objects
 * https://www.tutorialspoint.com/guice/guice_provides_annotation.htm
 * https://github.com/google/guice/wiki/ProvidesMethods
 * Method annotated with @Provides creating the object, must be defined within a module
 
-# Constructor bindings (since Guice 3.0)
+## Constructor bindings (since Guice 3.0)
 * https://www.tutorialspoint.com/guice/guice_constructor_bindings.htm
 * https://github.com/google/guice/wiki/ToConstructorBindings
 Occasionally it's necessary to bind a type to an arbitrary constructor. This comes up when the @Inject annotation 
 cannot be applied to the target constructor: either because it is a third party class,
 or because multiple constructors that participate in dependency injection
 
-# Built-in bindings
+## Built-in bindings
 * https://www.tutorialspoint.com/guice/guice_inbuilt_bindings.htm
 * https://github.com/google/guice/wiki/BuiltInBindings
 Guice has built-in binding for "java.util.logging.Logger"
 * The binding automatically sets the logger's name to the name of the class into which the Logger is being injected
+
+## Just-in-time bindings
+* https://www.tutorialspoint.com/guice/guice_just_in_time_bindings.htm
+* https://github.com/google/guice/wiki/JustInTimeBindings
+As bindings are defined in Binding Module, Guice uses them whenever it needs to inject dependencies.
+In case bindings are not present, it can attempt to create just-in-time bindings.
+Bindings present in the binding module are called Explicit bindings and are of higher precedence whereas
+just-in-time bindings are called Implicit bindings.
+
+Three use cases:
+* Eligible Constructors: ???
+* @ImplementedBy: Tells the injector about a default implementation. ex: @ImplementedBy(PayPalCreditCardProcessor.class)
+* @ProvidedBy: Tells the injector about a provider. ex: @ProvidedBy(DatabaseTransactionLogProvider.class)
