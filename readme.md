@@ -1,5 +1,6 @@
 # Guice tutorial
-* Seen on https://www.tutorialspoint.com/guice/index.htm
+* https://www.tutorialspoint.com/guice/index.htm
+* https://github.com/google/guice/wiki/Scopes
 
 ## Linked binding
 https://www.tutorialspoint.com/guice/guice_linked_binding.htm
@@ -96,3 +97,11 @@ Three use cases:
 * Eligible Constructors: ???
 * @ImplementedBy: Tells the injector about a default implementation. ex: @ImplementedBy(PayPalCreditCardProcessor.class)
 * @ProvidedBy: Tells the injector about a provider. ex: @ProvidedBy(DatabaseTransactionLogProvider.class)
+
+## Scopes
+* https://github.com/google/guice/wiki/Scopes
+By default, Guice returns a new instance each time it supplies a value.
+This behaviour is configurable via scopes. Scopes allow you to reuse instances for the lifetime of:
+* An application (@Singleton)
+* A session (@SessionScoped)
+* A request (@RequestScoped)
