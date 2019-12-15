@@ -1,22 +1,19 @@
 package org.example;
 
-import com.google.inject.name.Named;
-
 import javax.inject.Inject;
+import java.util.logging.Logger;
 
 class TextEditor {
     private SpellChecker spellChecker;
-    private String dbUrl;
+    private Logger logger;
 
     @Inject
-    public TextEditor(SpellChecker spellChecker, @Named("JDBC") String dbUrl) {
+    public TextEditor(SpellChecker spellChecker, Logger logger) {
         this.spellChecker = spellChecker;
-        this.dbUrl = dbUrl;
+        this.logger = logger;
     }
     public void makeSpellCheck() {
+        logger.info("In TextEditor.makeSpellCheck() method");
         spellChecker.checkSpelling();
-    }
-    public void makeConnection() {
-        System.out.println(dbUrl);
     }
 }
