@@ -10,7 +10,6 @@ public class GuiceTester {
             Injector injector = Guice.createInjector(new TextEditorModule());
             TextEditor editor = injector.getInstance(TextEditor.class);
             editor.makeSpellCheck();
-//        editor.makeConnection();
         } catch (Exception e) {
             e.printStackTrace();
         }
