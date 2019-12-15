@@ -77,3 +77,9 @@ Guice provides a way to create bindings with value objects or constants
 Occasionally it's necessary to bind a type to an arbitrary constructor. This comes up when the @Inject annotation 
 cannot be applied to the target constructor: either because it is a third party class,
 or because multiple constructors that participate in dependency injection
+
+# Built-in bindings
+* https://www.tutorialspoint.com/guice/guice_inbuilt_bindings.htm
+* https://github.com/google/guice/wiki/BuiltInBindings
+Guice has built-in binding for "java.util.logging.Logger"
+* The binding automatically sets the logger's name to the name of the class into which the Logger is being injected
