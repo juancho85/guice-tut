@@ -96,3 +96,10 @@ Three use cases:
 * Eligible Constructors: ???
 * @ImplementedBy: Tells the injector about a default implementation. ex: @ImplementedBy(PayPalCreditCardProcessor.class)
 * @ProvidedBy: Tells the injector about a provider. ex: @ProvidedBy(DatabaseTransactionLogProvider.class)
+
+# Injections
+* https://github.com/google/guice/wiki/Injections
+* Constructor injector
+    * The constructor should accept class dependencies as parameters
+    * Annotate te constructor with @Inject
+    * If no constructor with the annotation, Guice will use a no params public constructor if available. Prefer the annotation (for compilation time checks)
