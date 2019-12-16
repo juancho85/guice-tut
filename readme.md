@@ -108,3 +108,5 @@ Three use cases:
     * Dependencies take the form of parameters, which the injector resolves before invoking the method
 * Field injection
     * Guice injects fields with the @Inject annotation. This is the most concise injection, but the least testable.
+* Optional
+    * Method and field injections may be optional, which causes Guice to silently ignore them when the dependencies aren't available.
