@@ -3,10 +3,17 @@ package journaldev.example;
 import javax.inject.Inject;
 
 public class ConsumerApplication {
-    private final MessageService messageService;
+//    private final MessageService messageService;
+    private MessageService messageService;
 
+//    @Inject
+//    public ConsumerApplication(MessageService messageService) {
+//        this.messageService = messageService;
+//    }
+
+    //setter method injector
     @Inject
-    public ConsumerApplication(MessageService messageService) {
+    public void setService(MessageService messageService){
         this.messageService = messageService;
     }
 

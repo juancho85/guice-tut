@@ -103,3 +103,6 @@ Three use cases:
     * The constructor should accept class dependencies as parameters
     * Annotate te constructor with @Inject
     * If no constructor with the annotation, Guice will use a no params public constructor if available. Prefer the annotation (for compilation time checks)
+* Method injection:
+    * Guice can inject methods that have the @Inject annotation
+    * Dependencies take the form of parameters, which the injector resolves before invoking the method. 
